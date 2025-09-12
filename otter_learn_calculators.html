@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Tools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>Menu</h2>
+      <button class="tablink" onclick="openTab('home')">Home</button>
+      <button class="tablink" onclick="openTab('gpa')">GPA Calculator</button>
+      <button class="tablink" onclick="openTab('ap')">AP Score Calculator</button>
+    </div>
+
+    <!-- Main content -->
+    <div class="main">
+      <!-- Home -->
+      <div id="home" class="tabcontent active">
+        <h1>Welcome!</h1>
+        <p>Select a tool from the sidebar.</p>
+      </div>
+
+      <!-- GPA Calculator -->
+        
+    <div id="gpa" class="tabcontent">
+      <h1>GPA Calculator</h1>
+      <div class="gpa-wrapper">
+        <form id="gpa-form">
+          <div id="courses"></div>
+          <button type="button" onclick="addCourse()">+ Add Course</button>
+        </form>
+
+        <!-- Results box -->
+        <div id="results" class="results-box">
+          <p><strong>Unweighted GPA:</strong> <span id="unweighted">0.00</span></p>
+          <p><strong>Weighted GPA:</strong> <span id="weighted">0.00</span></p>
+        </div>
+      </div>
+    </div>
+
+
+
+      <!-- AP Score Calculator -->
+    <div id="ap" class="tabcontent">
+        <h1>AP Score Calculator</h1>
+        <p>Select an AP subject:</p>
+        <div class="ap-grid">
+            <button>AP Biology</button>
+            <button>AP Chemistry</button>
+            <button>AP US History</button>
+            <button>AP African American Studies</button>
+            <button>AP Art History</button>
+            <button>AP Calculus AB</button>
+            <button>AP Calculus BC</button>
+            <button>AP Capstone</button>
+            <button>AP Chinese Language and Culture</button>
+            <button>AP Comparative Government and Politics</button>
+            <button>AP Computer Science Principles</button>
+            <button>AP Drawing</button>
+            <button>AP English Language and Composition</button>
+            <button>AP English Literature and Composition</button>
+            <button>AP Environmental Science</button>
+            <button>AP European History</button>
+            <button>AP French Language and Culture</button>
+            <button>AP German Language and Culture</button>
+            <button>AP Human Geography</button>
+            <button>AP Italian Language and Culture</button>
+            <button>AP Japanese Language and Culture</button>
+            <button>AP Latin</button>
+            <button>AP Macroeconomics</button>
+            <button>AP Microeconomics</button>
+            <button>AP Music Theory</button>
+            <button>AP Physics 1: Algebra-Based</button>
+            <button>AP Physics 2: Algebra-Based</button>
+            <button>AP Physics C: Electricity and Magnetism</button>
+            <button>AP Physics C: Mechanics</button>
+            <button>AP Precalculus</button>
+            <button>AP Psychology</button>
+            <button>AP Research</button>
+            <button>AP Seminar</button>
+            <button>AP Spanish Language and Culture</button>
+            <button>AP Spanish Literature and Culture</button>
+            <button>AP Statistics</button>
+            <button>AP United States Government and Politics</button>
+            <button>AP United States History</button>
+            <button>AP World History</button>
+        </div>
+        
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
