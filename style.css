@@ -1,63 +1,64 @@
 body {
-        margin:0;
-        font-family:Arial,sans-serif;
-        display:flex;
-        height:100vh;
-    }
-    .sidebar{
-       width: 220px;
-       background: #1e293b;
-       color: white;
-       display:flex;
-       flex-direction: column;
-       padding: 20px 10px; 
-    }
-    .sidebar h2{
-        font-size: 18px;
-        margin-bottom: 20px;
-    }
-    .sidebar button {
-        background: none;
-        border: none;
-        color: white;
-        padding: 10px;
-        text-align: left;
-        width: 100%;
-        cursor: pointer;
-        border-radius: 6px;
-    }
-    .sidebar button:hover {
-        background: #334155
-    }
-    .dropdown {
-        display:none;
-        flex-direction:column;
-        margin-left: 10px;
-    }
-    .dropdown button {
-        font-size:14px;
-        padding-left: 20px;
-    }
-    .content {
-      flex: 1;
-      padding: 20px;
-      background: #f1f5f9;
-      overflow-y: auto;
-    }
-    h1 {
-      margin-top: 0;
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-    }
-    input, select, button.calc-btn {
-      margin-top: 5px;
-      padding: 6px;
-      width: 100%;
-      max-width: 300px;
-    }
-    .result {
-      margin-top: 15px;
-      font-weight: bold;
-    }
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background: #222;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+}
+
+.sidebar h2 {
+  text-align: center;
+}
+
+.sidebar .tablink {
+  display: block;
+  background: #444;
+  color: white;
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sidebar .tablink:hover {
+  background: #666;
+}
+
+/* Main content */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Tabs */
+.tabcontent {
+  display: none;
+}
+
+.tabcontent.active {
+  display: block;
+}
+
+.course {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.course input, .course select {
+  padding: 5px;
+}
