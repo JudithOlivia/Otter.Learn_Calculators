@@ -15,7 +15,7 @@ body {
   background: #20013b;
   color: white;
   padding: 20px;
-  height: 100vh;
+  height: 300vh;
 }
 
 .sidebar h2 {
@@ -123,7 +123,7 @@ body {
 .results-box {
   position: absolute;
   top: 0;
-  right: 90px;
+  right: 100px;
   width: 220px;
   padding: 15px;
   border: 2px solid #444444;
@@ -138,3 +138,75 @@ body {
   font-size: 20px;
 }
 
+/* GPA Calculator Container */
+#gpa {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Wrapper around form + results */
+.gpa-wrapper {
+  display: flex;
+  justify-content: left;
+  gap: 30px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Form styling */
+#gpa-form {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  width: 450px;
+  text-align: center;
+}
+
+#gpa-form button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: #e783ed;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+#gpa-form button:hover {
+  background: #8f55c9;
+}
+
+/* Course input box */
+#courses {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Results box */
+.results-box {
+  background: #ffffff;
+  border: 2px solid #e783ed;
+  border-radius: 15px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.results-box p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.results-box strong {
+  color: #e45aeb;
+}
+
+.how-gpa {
+  text-align: center;
+}
