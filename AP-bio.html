@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Tools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>Menu</h2>
+      <button class="tablink" onclick="openTab('home')">Home</button>
+      <button class="tablink" onclick="openTab('gpa')">GPA Calculator</button>
+      <button class="tablink" onclick="openTab('ap')">AP Score Calculator</button> 
+
+
+        <h1>AP Biology Score Calculator</h1>
+        <a href="index.html">← Back to All Subjects</a>
+        
+   
+        <div class="calculator">
+             AP Biology specific calculator content 
+            <input type="number" id="mcq-score" placeholder="MCQ Score (0-60)">
+            <input type="number" id="frq-score" placeholder="FRQ Score (0-60)">
+            <button onclick="calculateScore()">Calculate</button>
+        </div>
+    </div> 
+    
+    <script>
+        function calculateScore() {
+            // AP Biology specific calculation logic
+        }
+        // <button onclick="window.location.href='ap-biology.html'">AP Biology</button>
+    </script> 
+</body>
+</html>
