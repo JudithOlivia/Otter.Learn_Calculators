@@ -94,35 +94,43 @@ body {
 }
 
 /* AP and GPA */
+
 .ap-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 per row */
-  gap: 10px;
-  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+  margin-left: 250px;
 }
 
 .ap-grid button {
-  padding: 10px;
+  padding: 50px 100px;
   background-color: #8f55c9; 
   color: white;
   border: none;
-  border-radius: 6px;
+  text-align: center;
+  align-items: center;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
-  transition: 0.2s;
+  font-size: 25px;
+  width: 300px;
+  transition: all 0.3s ease;
 }
 
 .ap-grid button:hover {
   background-color: #c745a8;
+  transform: translateY(-2px);
 }
 
+
 .gpa-wrapper {
-  position: relative;
+  position: center;
 }
 
 .results-box {
   position: absolute;
-  top: 0;
+  top: 10;
   right: 100px;
   width: 220px;
   padding: 15px;

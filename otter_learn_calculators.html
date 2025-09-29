@@ -13,7 +13,7 @@
       <h2>Menu</h2>
       <button class="tablink" onclick="openTab('home')">Home</button>
       <button class="tablink" onclick="openTab('gpa')">GPA Calculator</button>
-      <button class="tablink" onclick="openTab('ap')">AP Score Calculator</button>
+      <button class="tablink" onclick="openTab('ap')">SAT and PSAT Score Calculator</button>
     </div>
 
     <!-- Main content -->
@@ -29,43 +29,61 @@
             <p>Calculate your weighted and unweighted GPA.</p>
           </div>
           <div class="home-card" onclick="openTab('ap')">
-            <h2>AP Score Calculator</h2>
+            <h2>SAT and PSAT Score Calculator</h2>
             <p>Estimate your AP scores for any subject.</p>
           </div>
         </div>
       </div>
 
       <!-- GPA Calculator -->
-        
-    <div id="gpa" class="tabcontent">
-      <h1>GPA Calculator</h1>
-      <div class="gpa-wrapper">
-        <form id="gpa-form">
-          <div id="courses"></div>
-          <button type="button" onclick="addCourse()">+ Add Course</button>
-        </form>
+      <div id="gpa" class="tabcontent">
+        <h1>GPA Calculator</h1>
+        <div class="gpa-wrapper">
+          <form id="gpa-form">
+            <div id="courses"></div>
+            <button type="button" onclick="addCourse()">+ Add Course</button>
+          </form>
 
-        <!-- Results box -->
-        <div id="results" class="results-box">
-          <p><strong>Unweighted GPA:</strong> <span id="unweighted">0.00</span></p>
-          <p><strong>Weighted GPA:</strong> <span id="weighted">0.00</span></p>
-        </div>
-
-        <!--How GPA is calculated-->
-        <div id="percent" class = "how-gpa">
-          <p><strong> Grade point average (GPA) is a commonly used indicator of an individual's academic achievement in school. This calculator accepts letter grades only. These letter grades are translated into numerical values as shown below:</strong></p>
-          <div style="display: flex; justify-content: right;">
-            <iframe src="Percentage.png" width="800px" height="600px" style="border:none;"></iframe>
+          <!-- Results box -->
+          <div id="results" class="results-box">
+            <p><strong>Unweighted GPA:</strong> <span id="unweighted">0.00</span></p>
+            <p><strong>Weighted GPA:</strong> <span id="weighted">0.00</span></p>
           </div>
-          <p></p>
+
+          <!--How GPA is calculated-->
+          <div id="percent" class="how-gpa">
+            <p><strong> Grade point average (GPA) is a commonly used indicator of an individual's academic achievement in school. This calculator accepts letter grades only. These letter grades are translated into numerical values as shown below:</strong></p>
+            <div style="display: flex; justify-content: right;">
+              <iframe src="Percentage.png" width="800px" height="600px" style="border:none;"></iframe>
+            </div>
+            <p></p>
+          </div>
         </div>
+        <script src="script.js"></script>
       </div>
-    </div>
+
+      <!-- SAT Score Calculator -->   
+      <div id="ap" class="tabcontent">
+        <h1 style="text-align: center;">SAT and PSAT Score Calculator</h1>
+        <h3 style="text-align: center;">Use the calculators to estimate your SAT and PSAT Score</h3>
+        <p style="text-align: center;">These tools help you calculate projected SAT and PSAT scores by converting your raw performance into estimated section scores. Use them to track your progress, identify areas for improvement, and set target scores for your college application journey.</p>
+        <div class="ap-grid">
+          <br> 
+          <button onclick="onpageshow('sat')">SAT Calculator</button>
+          <button onclick="onpageshow('psat')">PSAT Calculator</button>
+        </div>
+        <script scr ="sat.js"></script>
+      </div>
+    </div> <!-- This closes the .main div -->
+  </div> <!-- This closes the .container div -->
+  
+  
+  
+</body>
+</html>
 
 
-
-      <!-- AP Score Calculator -->
-    <div id="ap" class="tabcontent">
+<!--<div id="ap" class="tabcontent">
         <h1>AP Score Calculator</h1>
         <p>Select an AP subject:</p>
         <div class="ap-grid">
@@ -109,13 +127,4 @@
             <button onclick="openAPCalculator('us-gov')">AP United States Government and Politics</button>
             <button onclick="window.location.href='ap-ush.html'">AP US History</button>
             <button onclick="openAPCalculator('world-history')">AP World History</button>
-        </div>
-        
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
-
-<!--nxt:create file for each subject-->
+        </div>-->
