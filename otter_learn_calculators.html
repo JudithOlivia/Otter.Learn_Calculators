@@ -13,11 +13,12 @@
       <h2>Menu</h2>
       <button class="tablink" onclick="openTab('home')">Home</button>
       <button class="tablink" onclick="openTab('gpa')">GPA Calculator</button>
-      <button class="tablink" onclick="openTab('ap')">SAT and PSAT Score Calculator</button>
+      <button class="tablink" onclick="openTab('ap')">SAT/PSAT Score Calculator</button>
     </div>
 
     <!-- Main content -->
     <div class="main">
+      
       <!-- Home -->
       <div id="home" class="tabcontent active">
         <h1 style="text-align: center;">Otter Learn Calculators</h1>
@@ -50,81 +51,106 @@
             <p><strong>Weighted GPA:</strong> <span id="weighted">0.00</span></p>
           </div>
 
-          <!--How GPA is calculated-->
+          <!-- How GPA is calculated -->
           <div id="percent" class="how-gpa">
-            <p><strong> Grade point average (GPA) is a commonly used indicator of an individual's academic achievement in school. This calculator accepts letter grades only. These letter grades are translated into numerical values as shown below:</strong></p>
+            <p><strong>
+              Grade point average (GPA) is a commonly used indicator of an individual's academic achievement in schools in the USA. 
+              This calculator accepts letter grades only. These letter grades are translated into numerical values as shown below:
+            </strong></p>
             <div style="display: flex; justify-content: right;">
               <iframe src="Percentage.png" width="800px" height="600px" style="border:none;"></iframe>
             </div>
-            <p></p>
           </div>
         </div>
         <script src="script.js"></script>
       </div>
 
-      <!-- SAT Score Calculator -->   
+      <!-- SAT & PSAT Intro Page -->
       <div id="ap" class="tabcontent">
-        <h1 style="text-align: center;">SAT and PSAT Score Calculator</h1>
-        <h3 style="text-align: center;">Use the calculators to estimate your SAT and PSAT Score</h3>
-        <p style="text-align: center;">These tools help you calculate projected SAT and PSAT scores by converting your raw performance into estimated section scores. Use them to track your progress, identify areas for improvement, and set target scores for your college application journey.</p>
-        <div class="ap-grid">
-          <br> 
-          <button onclick="onpageshow('sat')">SAT Calculator</button>
-          <button onclick="onpageshow('psat')">PSAT Calculator</button>
+        <h1 style="text-align: center;">SAT/PSAT Score Calculator</h1>
+        <h3 style="text-align: center;">Use the calculators to estimate your SAT and PSAT Score</h3> 
+        <p style="text-align: center;">
+          These tools help you calculate projected SAT and PSAT scores by converting your raw performance into estimated section scores.
+          Use them to track your progress, identify areas for improvement, and set target scores for your college application journey.
+    
+        </p> 
+        <p style="text-align: center">Note: This is only a score estimator and doesn't guarantee your score.</p>
+        <br><br>
+        <div class="ap-grid" style="text-align: center;">
+          <button onclick="openTab('sat')">SAT Calculator</button>
+          <button onclick="openTab('psat')">PSAT Calculator</button>
         </div>
-        <script scr ="sat.js"></script>
       </div>
-    </div> 
-  </div> 
-  
-  
-  
+
+      <!-- SAT Calculator -->
+      <div id="sat" class="tabcontent">
+        <h1>SAT Calculator</h1>
+        <div class="sat-wrapper">
+          <form id="sat-form" class="sat-form">
+            
+            <div class="form-group">
+              <label for="math">Math Raw Score (0–58):</label>
+              <input type="range" id="math" min="0" max="58" value="0" step="1" oninput="updateSAT()">
+              <span id="math-value">0</span>
+            </div>
+
+            <div class="form-group">
+              <label for="reading">Reading Raw Score (0–52):</label>
+              <input type="range" id="reading" min="0" max="52" value="0" step="1" oninput="updateSAT()">
+              <span id="reading-value">0</span>
+            </div>
+
+            <div class="form-group">
+              <label for="writing">Writing & Language Raw Score (0–44):</label>
+              <input type="range" id="writing" min="0" max="44" value="0" step="1" oninput="updateSAT()">
+              <span id="writing-value">0</span>
+            </div>
+          </form>
+
+          <div id="sat-results" class="results-box">
+            <h3>Your Results</h3>
+            <p><strong>Math Section Score:</strong> <span id="math-score">0</span></p>
+            <p><strong>Reading + Writing Section Score:</strong> <span id="ebrw-score">0</span></p>
+            <p><strong>Total Score:</strong> <span id="total-score">0</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PSAT Calculator -->
+      <div id="psat" class="tabcontent">
+        <h1>PSAT Calculator</h1>
+        <p>Coming soon...</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function updateSAT() {
+      // Get raw scores
+      let mathRaw = parseInt(document.getElementById("math").value);
+      let readingRaw = parseInt(document.getElementById("reading").value);
+      let writingRaw = parseInt(document.getElementById("writing").value);
+
+      // Update raw values next to sliders
+      document.getElementById("math-value").textContent = mathRaw;
+      document.getElementById("reading-value").textContent = readingRaw;
+      document.getElementById("writing-value").textContent = writingRaw;
+
+      // --- Example conversion (real SAT conversion tables vary) ---
+      let mathScore = Math.round((mathRaw / 58) * 800);
+      let readingScore = Math.round((readingRaw / 52) * 400);
+      let writingScore = Math.round((writingRaw / 44) * 400);
+
+      let ebrwScore = readingScore + writingScore; // Evidence-Based Reading and Writing
+      let totalScore = mathScore + ebrwScore;
+
+      // Update results
+      document.getElementById("math-score").textContent = mathScore;
+      document.getElementById("ebrw-score").textContent = ebrwScore;
+      document.getElementById("total-score").textContent = totalScore;
+    }
+  </script>
 </body>
 </html>
 
 
-<!--<div id="ap" class="tabcontent">
-        <h1>AP Score Calculator</h1>
-        <p>Select an AP subject:</p>
-        <div class="ap-grid">
-            
-            <button onclick="openAPCalculator('african-american-studies')">AP African American Studies</button>
-            <button onclick="openAPCalculator('art-history')">AP Art History</button>
-            <button onclick="window.location.href='AP-bio.html'">AP Biology</button>
-            <button onclick="openAPCalculator('calculus-ab')">AP Calculus AB</button>
-            <button onclick="openAPCalculator('calculus-bc')">AP Calculus BC</button>
-            <button onclick="openAPCalculator('capstone')">AP Capstone</button>
-            <button onclick="window.location.href='AP-Chem.html'">AP Chemistry</button>
-            <button onclick="openAPCalculator('chinese')">AP Chinese Language and Culture</button>
-            <button onclick="openAPCalculator('comparative-gov')">AP Comparative Government and Politics</button>
-            <button onclick="openAPCalculator('csp')">AP Computer Science Applications</button>
-            <button onclick="openAPCalculator('csp')">AP Computer Science Principles</button>
-            <button onclick="openAPCalculator('drawing')">AP Drawing</button>
-            <button onclick="openAPCalculator('english-language')">AP English Language and Composition</button>
-            <button onclick="openAPCalculator('english-literature')">AP English Literature and Composition</button>
-            <button onclick="openAPCalculator('environmental-science')">AP Environmental Science</button>
-            <button onclick="openAPCalculator('european-history')">AP European History</button>
-            <button onclick="openAPCalculator('french')">AP French Language and Culture</button>
-            <button onclick="openAPCalculator('german')">AP German Language and Culture</button>
-            <button onclick="openAPCalculator('human-geography')">AP Human Geography</button>
-            <button onclick="openAPCalculator('italian')">AP Italian Language and Culture</button>
-            <button onclick="openAPCalculator('japanese')">AP Japanese Language and Culture</button>
-            <button onclick="openAPCalculator('latin')">AP Latin</button>
-            <button onclick="openAPCalculator('macroeconomics')">AP Macroeconomics</button>
-            <button onclick="openAPCalculator('microeconomics')">AP Microeconomics</button>
-            <button onclick="openAPCalculator('music-theory')">AP Music Theory</button>
-            <button onclick="openAPCalculator('physics-1')">AP Physics 1: Algebra-Based</button>
-            <button onclick="openAPCalculator('physics-2')">AP Physics 2: Algebra-Based</button>
-            <button onclick="openAPCalculator('physics-c-em')">AP Physics C: Electricity and Magnetism</button>
-            <button onclick="openAPCalculator('physics-c-mechanics')">AP Physics C: Mechanics</button>
-            <button onclick="openAPCalculator('precalculus')">AP Precalculus</button>
-            <button onclick="openAPCalculator('psychology')">AP Psychology</button>
-            <button onclick="openAPCalculator('research')">AP Research</button>
-            <button onclick="openAPCalculator('seminar')">AP Seminar</button>
-            <button onclick="openAPCalculator('spanish-language')">AP Spanish Language and Culture</button>
-            <button onclick="openAPCalculator('spanish-literature')">AP Spanish Literature and Culture</button>
-            <button onclick="openAPCalculator('statistics')">AP Statistics</button>
-            <button onclick="openAPCalculator('us-gov')">AP United States Government and Politics</button>
-            <button onclick="window.location.href='ap-ush.html'">AP US History</button>
-            <button onclick="openAPCalculator('world-history')">AP World History</button>
-        </div>-->

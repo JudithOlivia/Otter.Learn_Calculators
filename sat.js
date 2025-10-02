@@ -90,7 +90,7 @@ class SATCalculator {
         const writingScaled = this.rawToScaled.writing[writingCorrect] || 10;
         const mathScaled = this.rawToScaled.math[mathCorrect] || 200;
 
-        // Calculate Evidence-Based Reading and Writing score
+        // Calculate Reading and Writing score
         const ebrwScore = (readingScaled + writingScaled) * 10;
 
         // Calculate total score
@@ -159,4 +159,11 @@ function resetCalculator() {
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('calculate-btn').addEventListener('click', calculateSATScore);
     document.getElementById('reset-btn').addEventListener('click', resetCalculator);
-});
+
+})
+
+function updateValue(id) {
+  let slider = document.getElementById(id);
+  let valueSpan = document.getElementById(id + "-value");
+  valueSpan.textContent = slider.value;
+};

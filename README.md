@@ -20,30 +20,24 @@ A simple and efficient web application to calculate your AP exam scores and your
 
 ## 🛠️ Built With
 
-*   **Frontend:** HTML, CSS, JavaScript
-*   **Styling Framework:** [e.g., Bootstrap, Tailwind CSS] *(if you used one)*
-*   **Deployment:** [e.g., GitHub Pages, Netlify, Vercel] *(if deployed)*
-
+*   HTML, CSS, JavaScript
 ---
 
 ## 📖 How to Use
 
-### Using the AP Score Calculator
-1.  Select your AP Exam from the dropdown menu (e.g., AP Biology, AP Calculus AB).
-2.  Enter your raw score for the Multiple-Choice section.
-3.  Enter your raw score for the Free-Response section.
-4.  Click the "Calculate" button.
-5.  View your estimated composite AP Score (1-5) and its description.
+### Using the SAT/PSAT Score Calculator
+1.  Select SAT/PSAT by clicking the button in homepage or "SAT/PSAT Score Calculator" tab in the sidebar..
+2.  Drag along the number bar to enter your raw score for Each Section of SAT/PSAT.
+3.  Your "estimated" score will be calculated and displayed automatically as you enter data.
 
 ### Using the GPA Calculator
-1.  Select your GPA Scale (e.g., 4.0 Unweighted, 5.0 Weighted).
+1.  Select SAT/PSAT by clicking the button in homepage or "GPA calculator" tab in the sidebar..
 2.  For each course, enter:
     *   **Course Name** (e.g., "English 101")
     *   **Credit Hours** (e.g., 1.0)
-    *   **Letter Grade** (e.g., A, B+, C)
+    *   **Letter Grade** (e.g., A, B+, C) [if you don't knoe the letter grade, then see the percentage table at the bottom.]
     *   **Course Weight** (e.g., Regular, Honors, AP) - *if using weighted GPA*
-3.  Click "Add Course" to include more courses.
-4.  Your GPA will be calculated and displayed automatically as you enter data.
-5.  To start over, click the "Reset" button.
 
+3.  Click "Add Course" to include more courses. Click the "X" next to the course to remove a course
+4.  Your GPA will be calculated and displayed automatically as you enter data.
 ---
