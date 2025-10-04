@@ -123,29 +123,6 @@ body {
   transform: translateY(-10px);
 }
 
-
-.gpa-wrapper {
-  position: center;
-}
-
-.results-box {
-  position: absolute;
-  top: 10;
-  right: 100px;
-  width: 220px;
-  padding: 15px;
-  border: 2px solid #444444;
-  border-radius: 10px;
-  background-color: #d070d5;
-  text-align: left;
-  box-shadow: 2px 2px 8px rgba(118, 38, 172, 0.1);
-}
-
-.results-box p {
-  margin: 10px 0;
-  font-size: 20px;
-}
-
 /* GPA Calculator Container */
 #gpa {
   padding: 20px;
@@ -153,7 +130,7 @@ body {
   text-align: center;
 }
 
-/* Wrapper around form + results */
+/* Wrapper around form */
 .gpa-wrapper {
   display: flex;
   justify-content: left;
@@ -168,7 +145,7 @@ body {
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-  width: 450px;
+  width: 500px;
   text-align: center;
 }
 
@@ -195,32 +172,9 @@ body {
   gap: 10px;
 }
 
-/* Results box */
-.results-box {
-  background: #ffffff;
-  border: 2px solid #e783ed;
-  border-radius: 15px;
-  padding: 20px;
-  width: 250px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-  text-align: left;
-}
-
-.results-box p {
-  font-size: 16px;
-  margin: 10px 0;
-}
-
-.results-box strong {
-  color: #e45aeb;
-}
-
 .how-gpa {
   text-align: center;
 }
-
-
-
 
 /* SAT Calculator Wrapper */
 .sat-wrapper {
@@ -229,6 +183,7 @@ body {
   gap: 20px;
   flex-wrap: wrap;
   margin-top: 20px;
+  width: 58%;
 }
 
 /* SAT Form */
@@ -276,22 +231,108 @@ body {
   background: #005bb5;
 }
 
-/* Results Box */
-.results-box {
+/* SAT Calculator Wrapper - Side by side layout */
+.sat-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 20px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+/* SAT Form - Left side */
+.sat-form {
   flex: 1;
-  min-width: 280px;
+  min-width: 300px;
+  background: #ffffff;
+  padding: 25px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+.sat-form .form-group {
+  margin-bottom: 20px;
+}
+
+.sat-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.sat-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Display raw score values */
+.sat-form .raw-score-value {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 8px;
+  color: #333;
+}
+
+/* SAT Results Box - Right side */
+.sat-results-box {
+  flex: 1;
+  min-width: 320px;
   background: #f9f9f9;
-  padding: 20px;
+  padding: 25px;
   border: 2px solid #333;
   border-radius: 10px;
   box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
 }
 
-.results-box h3 {
+.sat-results-box h3 {
   margin-top: 0;
-  margin-bottom: 15px;
-  font-size: 18px;
+  margin-bottom: 25px;
+  font-size: 22px;
   color: #222;
+  text-align: center;
 }
 
+/* Score Boxes Container - Stacked vertically */
+.score-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
+/* Individual Score Boxes */
+.score-box {
+  background: #ff69b4;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-box h4 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.score-value {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* j 

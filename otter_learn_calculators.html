@@ -86,34 +86,53 @@
       <div id="sat" class="tabcontent">
         <h1>SAT Calculator</h1>
         <div class="sat-wrapper">
+          <h4> Preparing for the Digital SAT® (DSAT®) exam and curious about your potential score? You’ve come to the right place! With this interactive SAT® score calculator, you can predict how your raw score translates to your SAT®</h4>
           <form id="sat-form" class="sat-form">
             
             <div class="form-group">
               <label for="math">Math Raw Score (0–58):</label>
               <input type="range" id="math" min="0" max="58" value="0" step="1" oninput="updateSAT()">
-              <span id="math-value">0</span>
+              <span id="math-value">0</span> 
             </div>
 
             <div class="form-group">
               <label for="reading">Reading Raw Score (0–52):</label>
               <input type="range" id="reading" min="0" max="52" value="0" step="1" oninput="updateSAT()">
-              <span id="reading-value">0</span>
+              <span id="reading-value">0</span> 
             </div>
 
             <div class="form-group">
               <label for="writing">Writing & Language Raw Score (0–44):</label>
               <input type="range" id="writing" min="0" max="44" value="0" step="1" oninput="updateSAT()">
-              <span id="writing-value">0</span>
+              <span id="writing-value">0</span> 
             </div>
           </form>
 
           <div id="sat-results" class="results-box">
-            <h3>Your Results</h3>
-            <p><strong>Math Section Score:</strong> <span id="math-score">0</span></p>
-            <p><strong>Reading + Writing Section Score:</strong> <span id="ebrw-score">0</span></p>
-            <p><strong>Total Score:</strong> <span id="total-score">0</span></p>
+            <h3>Estimated Score:</h3>
+            <div class="score-container">
+              <div class="score-box">
+                <h4>Math </h4>
+                <div class="score-value" id="math-score">0</div>
+              </div>
+              <div class="score-box">
+                <h4>English </h4>
+                <div class="score-value" id="ebrw-score">0</div>
+              </div>
+              <div class="score-box">
+                <h4>Total Score</h4>
+                <div class="score-value" id="total-score">0</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3> SAT® Score Calculation:</h3> 
+            <p>Reading and Writing: The raw scores from both Reading and Writing modules are added and converted to the section score.</p>
+            <p>Math: Similarly, the raw scores from both Math modules are totaled and then converted to the section score.</p>
+            <p>The total SAT® score, combining the Reading, Writing, and Math sections, will still range from 400 to 1600</p>
           </div>
         </div>
+      
       </div>
 
       <!-- PSAT Calculator -->
