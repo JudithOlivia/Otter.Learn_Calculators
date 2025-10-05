@@ -88,22 +88,83 @@
         <div class="sat-wrapper">
           <h4> Preparing for the Digital SAT® (DSAT®) exam and curious about your potential score? You’ve come to the right place! With this interactive SAT® score calculator, you can predict how your raw score translates to your SAT®</h4>
           <form id="sat-form" class="sat-form">
+
+            <div class="form-group">
+              <label for="reading">Reading & Writting Module 2 (0–27):</label>
+              <input type="range" id="reading" min="0" max="27" value="0" step="1" oninput="updateSAT('sat')">
+              <span id="reading-value">0</span> 
+            </div>
+
+            <div class="form-group">
+              <label for="writing">Reading & Writting Module 2 (0–27):</label>
+              <input type="range" id="writing" min="0" max="27" value="0" step="1" oninput="updateSAT('sat')">
+              <span id="writing-value">0</span> 
+            </div>
+
+            <div class="form-group">
+              <label for="math">Math Module 1 & 2 (0–44):</label>
+              <input type="range" id="math" min="0" max="44" value="0" step="1" oninput="updateSAT('sat')">
+              <span id="math-value">0</span> 
+            </div>
+
+            <div class="form-group">
+              <label for="math">Math Module 1 & 2 (0–44):</label>
+              <input type="range" id="math" min="0" max="44" value="0" step="1" oninput="updateSAT('sat')">
+              <span id="math-value">0</span> 
+            </div>
+          </form>
+
+          <div id="sat-results" class="results-box">
+            <h3>Estimated Score:</h3>
+            <div class="score-container">
+              <div class="score-box">
+                <h4>English </h4>
+                <div class="score-value" id="ebrw-score">0</div>
+              </div>
+              <div class="score-box">
+                <h4>Math </h4>
+                <div class="score-value" id="math-score">0</div>
+              </div>
+              <div class="score-box">
+                <h4>Total Score</h4>
+                <div class="score-value" id="total-score">0</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3> SAT® Score Calculation:</h3> 
+            <p>Reading and Writing: The raw scores from both Reading and Writing modules are added and converted to the section score.</p>
+            <p>Math: Similarly, the raw scores from both Math modules are totaled and then converted to the section score.</p>
+            <p>The total SAT® score, combining the Reading, Writing, and Math sections, will still range from 400 to 1600</p>
+          </div>
+        </div>
+      
+      </div>
+
+      <!-- PSAT Calculator -->
+      <div id="psat" class="tabcontent">
+        <h1>PSAT Calculator</h1>
+        
+        <div class="sat-wrapper">
+          <h4> Preparing for the Digital SAT® (DSAT®) exam and curious about your potential score? You’ve come to the right place! With this interactive SAT® score calculator, you can predict how your raw score translates to your SAT®</h4>
+          <form id="sat-form" class="sat-form">
             
             <div class="form-group">
               <label for="math">Math Raw Score (0–58):</label>
-              <input type="range" id="math" min="0" max="58" value="0" step="1" oninput="updateSAT()">
+              <input type="range" id="math" min="0" max="58" value="0" step="1" oninput="updateSAT('psat')">
+
               <span id="math-value">0</span> 
             </div>
 
             <div class="form-group">
               <label for="reading">Reading Raw Score (0–52):</label>
-              <input type="range" id="reading" min="0" max="52" value="0" step="1" oninput="updateSAT()">
+              <input type="range" id="reading" min="0" max="52" value="0" step="1" oninput="updateSAT('psat')">
               <span id="reading-value">0</span> 
             </div>
 
             <div class="form-group">
               <label for="writing">Writing & Language Raw Score (0–44):</label>
-              <input type="range" id="writing" min="0" max="44" value="0" step="1" oninput="updateSAT()">
+              <input type="range" id="writing" min="0" max="44" value="0" step="1" oninput="updateSAT('psat')">
               <span id="writing-value">0</span> 
             </div>
           </form>
@@ -126,49 +187,74 @@
             </div>
           </div>
           <div>
-            <h3> SAT® Score Calculation:</h3> 
+            <h3> PSAT® Score Calculation:</h3> 
             <p>Reading and Writing: The raw scores from both Reading and Writing modules are added and converted to the section score.</p>
             <p>Math: Similarly, the raw scores from both Math modules are totaled and then converted to the section score.</p>
-            <p>The total SAT® score, combining the Reading, Writing, and Math sections, will still range from 400 to 1600</p>
+            <p>The total PSAT® score, combining the Reading, Writing, and Math sections, will still range from 320 to 1520</p>
           </div>
         </div>
       
       </div>
 
-      <!-- PSAT Calculator -->
-      <div id="psat" class="tabcontent">
-        <h1>PSAT Calculator</h1>
-        <p>Coming soon...</p>
+        
       </div>
     </div>
   </div>
 
   <script>
-    function updateSAT() {
-      // Get raw scores
-      let mathRaw = parseInt(document.getElementById("math").value);
-      let readingRaw = parseInt(document.getElementById("reading").value);
-      let writingRaw = parseInt(document.getElementById("writing").value);
+  function updateSAT(testType) {
+    let mathRaw, readingRaw, writingRaw;
+    let mathMax, readingMax, writingMax;
+    let mathScore, readingScore, writingScore, ebrwScore, totalScore;
 
-      // Update raw values next to sliders
-      document.getElementById("math-value").textContent = mathRaw;
-      document.getElementById("reading-value").textContent = readingRaw;
-      document.getElementById("writing-value").textContent = writingRaw;
+    if (testType === "sat") {
+      mathRaw = parseInt(document.querySelector("#sat #math").value);
+      readingRaw = parseInt(document.querySelector("#sat #reading").value);
+      writingRaw = parseInt(document.querySelector("#sat #writing").value);
 
-      // --- Example conversion (real SAT conversion tables vary) ---
-      let mathScore = Math.round((mathRaw / 58) * 800);
-      let readingScore = Math.round((readingRaw / 52) * 400);
-      let writingScore = Math.round((writingRaw / 44) * 400);
+      mathMax = 44; readingMax = 27; writingMax = 27;
 
-      let ebrwScore = readingScore + writingScore; // Evidence-Based Reading and Writing
-      let totalScore = mathScore + ebrwScore;
+      document.querySelector("#sat #math-value").textContent = mathRaw;
+      document.querySelector("#sat #reading-value").textContent = readingRaw;
+      document.querySelector("#sat #writing-value").textContent = writingRaw;
 
-      // Update results
-      document.getElementById("math-score").textContent = mathScore;
-      document.getElementById("ebrw-score").textContent = ebrwScore;
-      document.getElementById("total-score").textContent = totalScore;
+      // SAT scaling
+      mathScore = Math.round(200 + (mathRaw / mathMax) * 600);
+      readingScore = Math.round(100 + (readingRaw / readingMax) * 300);
+      writingScore = Math.round(100 + (writingRaw / writingMax) * 300);
+
+      ebrwScore = readingScore + writingScore; // 200–800
+      totalScore = Math.min(ebrwScore + mathScore, 1600);
+
+      document.querySelector("#sat #math-score").textContent = mathScore;
+      document.querySelector("#sat #ebrw-score").textContent = ebrwScore;
+      document.querySelector("#sat #total-score").textContent = totalScore;
+
+    } else if (testType === "psat") {
+      mathRaw = parseInt(document.querySelector("#psat #math").value);
+      readingRaw = parseInt(document.querySelector("#psat #reading").value);
+      writingRaw = parseInt(document.querySelector("#psat #writing").value);
+
+      mathMax = 58; readingMax = 52; writingMax = 44;
+
+      document.querySelector("#psat #math-value").textContent = mathRaw;
+      document.querySelector("#psat #reading-value").textContent = readingRaw;
+      document.querySelector("#psat #writing-value").textContent = writingRaw;
+
+      // PSAT scaling
+      mathScore = Math.round(160 + (mathRaw / mathMax) * 640);
+      readingScore = Math.round(80 + (readingRaw / readingMax) * 320);
+      writingScore = Math.round(80 + (writingRaw / writingMax) * 320);
+
+      ebrwScore = readingScore + writingScore; // 160–760
+      totalScore = Math.min(ebrwScore + mathScore, 1520);
+
+      document.querySelector("#psat #math-score").textContent = mathScore;
+      document.querySelector("#psat #ebrw-score").textContent = ebrwScore;
+      document.querySelector("#psat #total-score").textContent = totalScore;
     }
-  </script>
+  }
+</script>
 </body>
 </html>
 
