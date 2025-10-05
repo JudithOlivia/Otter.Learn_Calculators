@@ -2,7 +2,7 @@
 
 A simple and efficient web application to calculate your AP exam scores and your Grade Point Average (GPA). Plan your academic goals with ease!
 
-
+Athena Award Badge: https://bin.phthallo.com/clLUOC.md
 --
 ## AP Score Calculator
 *   **Weighted Scoring:** Calculates your final AP score (1-5) based on your multiple-choice and free-response section performance.
